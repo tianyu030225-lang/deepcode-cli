@@ -1,0 +1,11 @@
+.codegraph/
+.claude/
+/build/
+/mycc/.build/
+/测试/
+/mycc/测试/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
