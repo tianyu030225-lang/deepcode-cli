@@ -8,7 +8,14 @@ Deepcode 是一个 Linux 终端里的 AI 编程助手。进入项目目录后，
 
 需要 Linux、Go 1.21+、Make、C 编译器（`cc`）和 `ar`。终端需要支持 TTY 和 ANSI 控制序列。
 
-在仓库根目录执行：
+先用 Git 获取源码并进入仓库目录：
+
+```bash
+git clone https://github.com/tianyu030225-lang/deepcode-cli.git
+cd deepcode-cli
+```
+
+如果下载的是 ZIP，解压后进入包含 `mycc/` 的目录。以下构建和安装命令都在这个目录执行：
 
 ```bash
 make -C mycc
@@ -28,7 +35,17 @@ cd /path/to/your/project
 deepcode
 ```
 
-更新时重新构建并运行 `./build/deepcode` 即可。重新安装会保留已有配置和会话。
+### 更新
+
+退出正在运行的 Deepcode，回到上面克隆的 `deepcode-cli` 仓库根目录，再执行：
+
+```bash
+git pull --ff-only
+make -C mycc
+./build/deepcode
+```
+
+这些命令在 Deepcode 的源码目录执行，不是在让它处理的项目目录执行。使用 ZIP 源码时，重新下载并解压后执行后两条命令即可。重新安装会保留已有配置和会话；完成后回到工作项目目录启动 `deepcode`。
 
 要指定 Go 的位置，可以使用 `make -C mycc GO=/usr/local/go/bin/go`。
 
